@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Foggyline
+ * @package     Foggyline_SingleResultSearch
+ * @copyright   Copyright (c) Branko Ajzele <ajzele@gmail.com>
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <sections>
+        <catalog>
+            <groups>
+                <foggyline_singleresultsearch translate="label">
+                    <label><![CDATA[Foggyline | Single Result Search]]></label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>102</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[If enabled this extension will allow you to do redirect from catalogsearch/result page to direct product page in cases when there is only one product shown under search results.]]></comment>
+                        </active>
+                        <msg_show translate="label">
+                            <label>Show Message</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Show standard notification message if redirected to product page?]]></comment>
+                        </msg_show>
+                        <msg_type translate="label">
+                            <label>Message Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>foggyline_singleresultsearch/system_config_source_notification_message_type</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <msg_show>1</msg_show>
+                            </depends>
+                            <comment><![CDATA[Flash/notification message type. Can be one of following values: error, warning, notice, success.]]></comment>
+                        </msg_type>
+                        <msg_label translate="label">
+                            <label>Message Label</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <msg_show>1</msg_show>
+                            </depends>
+                            <comment><![CDATA[The actual message label that is shown to customer. Use "[[PRODUCT]]" as a placeholder for product name, if you want one to be shown. For example: "Your search yielded only [[PRODUCT]] product, so we took the liberty of throwing you directly on the product page.".]]></comment>
+                        </msg_label>
+                    </fields>
+                </foggyline_singleresultsearch>
+            </groups>
+        </catalog>
+    </sections>
+</config>

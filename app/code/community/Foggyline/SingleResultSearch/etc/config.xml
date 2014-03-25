@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Foggyline
+ * @package     Foggyline_SingleResultSearch
+ * @copyright   Copyright (c) Branko Ajzele <ajzele@gmail.com>
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Foggyline_SingleResultSearch>
+            <version>1.0.0.0</version>
+        </Foggyline_SingleResultSearch>
+    </modules>
+    <global>
+        <models>
+            <foggyline_singleresultsearch>
+                <class>Foggyline_SingleResultSearch_Model</class>
+            </foggyline_singleresultsearch>
+        </models>
+        <helpers>
+            <foggyline_singleresultsearch>
+                <class>Foggyline_SingleResultSearch_Helper</class>
+            </foggyline_singleresultsearch>
+        </helpers>
+    </global>
+    <frontend>
+        <events>
+            <controller_action_postdispatch_catalogsearch_result_index>
+                <observers>
+                    <foggyline_singleresultsearch_1>
+                        <class>foggyline_singleresultsearch/observer</class>
+                        <method>redirectToProductPage</method>
+                    </foggyline_singleresultsearch_1>
+                </observers>
+            </controller_action_postdispatch_catalogsearch_result_index>
+            <controller_action_postdispatch_catalogsearch_advanced_result>
+                <observers>
+                    <foggyline_singleresultsearch_2>
+                        <class>foggyline_singleresultsearch/observer</class>
+                        <method>redirectToProductPage</method>
+                    </foggyline_singleresultsearch_2>
+                </observers>
+            </controller_action_postdispatch_catalogsearch_advanced_result>            
+        </events>
+    </frontend>
+    <default>
+        <catalog>
+            <foggyline_singleresultsearch>
+                <active>0</active>
+                <msg_show>1</msg_show>
+                <msg_type>success</msg_type>
+                <msg_label><![CDATA[Your search yielded only [[PRODUCT]] product, so we took the liberty of throwing you directly on the product page.]]></msg_label>
+            </foggyline_singleresultsearch>
+        </catalog>
+    </default>
+</config>
